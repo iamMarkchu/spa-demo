@@ -5,6 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import 'jquery'
+import 'popper.js'
+import 'bootstrap'
+
 new Vue({
   router,
   store,
