@@ -1,32 +1,63 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
-            <router-link to="/" class="navbar-brand">Mcgoldfish</router-link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="navbar-brand">
+                <router-link class="navbar-item" to="/">
+                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                </router-link>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <router-link to="{name: 'about'}"></router-link>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TBD</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TBD</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://mcgoldfish.com/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://mcgoldfish.com/register">Register</a>
-                    </li>
-                </ul>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Home
+                    </a>
+
+                    <a class="navbar-item">
+                        Documentation
+                    </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            More
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                About
+                            </a>
+                            <a class="navbar-item">
+                                Jobs
+                            </a>
+                            <a class="navbar-item">
+                                Contact
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Report an issue
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -39,9 +70,5 @@
 </script>
 
 <style>
-.navbar-laravel {
-    background-color: #fff;
-    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.04);
-    box-shadow: 0 2px 4px rgba(0,0,0,.04);
-}
+
 </style>

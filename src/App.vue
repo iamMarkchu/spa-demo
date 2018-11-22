@@ -14,7 +14,9 @@
   }
 </script>
 <style lang="scss">
-  @import "~bootstrap/scss/bootstrap";
+  $gap: 64px !default
+  $fullhd: 1152px + (2 * $gap) !default
+  @import "~bulma/bulma.sass";
   body {
     margin: 0;
     font-family: Nunito,sans-serif;
@@ -24,5 +26,8 @@
     color: #212529;
     text-align: left;
     background-color: #f8fafc;
+  }
+  .right-block {
+    margin-bottom: 20px;
   }
 </style>
