@@ -6,8 +6,16 @@
 </template>
 <script>
   import NavBar from './components/layouts/NavBar'
+  import JwtToken from './utils/jwtToken'
   export default {
       name: 'app',
+      created() {
+          if (JwtToken.getToken()) {
+              this.$store.dispatch('setAuthUser').then(() => {
+                  console.log('user get success')
+              })
+          }
+      },
       components: {
           NavBar
       }

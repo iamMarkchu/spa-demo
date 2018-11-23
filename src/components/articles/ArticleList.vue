@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import { getList } from '@/apis/articles'
     export default {
         name: "ArticleList",
         data(){
@@ -38,9 +38,8 @@
           }
         },
         created() {
-            axios.get('http://api.spa.test/articles').then(response => {
+            getList().then(response => {
                 this.articles = response.data.data
-                console.log(response)
             })
         }
     }

@@ -5,19 +5,13 @@
                 <div class="column is-8">
                     <div class="card article-card">
                         <div class="card-content">
-                            <p class="title has-text-centered">我是文章标题</p>
+                            <h1 class="title has-text-centered">我是文章标题</h1>
                             <div class="tags has-addons level-item">
-                                <span class="tag is-rounded is-info">@Chukui</span>
+                                <span class="tag is-rounded is-primary">@Chukui</span>
                                 <span class="tag is-rounded">May 10, 2018</span>
                             </div>
                             <div class="content">
                                 <div class="card-body markdown-body">
-                                    <h1 class="card-title text-center">Go操作Redis</h1>
-                                    <div class="info-block text-center text-muted">
-                                        <span class="oi oi-timer"></span><span>2018-11-10 07:01:01</span>&nbsp;&nbsp;
-                                        <span class="oi oi-person"></span><span>chukui</span>&nbsp;&nbsp;
-                                        <span class="oi oi-eye"></span><span class="view_count">2</span>&nbsp;&nbsp;
-                                    </div>
                                     <p><img src="http://qiniu.mcgoldfish.com/image/1/cDHxhDhK3jB2yWfo02xA3S1v6fNhPsAYuqvQRZre.png" alt="go redis" data-src="http://qiniu.mcgoldfish.com/image/1/cDHxhDhK3jB2yWfo02xA3S1v6fNhPsAYuqvQRZre.png" class="img-fluid">
                                         redis在生成环境中应用非常广泛，它优秀的性能，使构建高并发，高性能的应用变得更加容易。
                                         使用go进行程序开发时，免不了和redis打交道，所以掌握在go中操作redis是很有必要的</p>

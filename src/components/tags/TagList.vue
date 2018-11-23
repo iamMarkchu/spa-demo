@@ -12,7 +12,8 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import { getList } from "../../apis/tags"
+
     export default {
         name: "TagList",
         data() {
@@ -21,9 +22,8 @@
             }
         },
         created() {
-            axios.get('http://api.spa.test/tags').then(response => {
+            getList().then(response => {
                 this.tags = response.data
-                console.log(response)
             })
         }
     }
