@@ -1,39 +1,38 @@
 <template>
     <div class="card right-block">
         <header class="card-header">
-            <div class="card-header-title">
-                标签栏
-            </div>
+            <div class="card-header-title">类别栏</div>
         </header>
         <div class="card-content">
             <loading v-show="loading"></loading>
             <div class="tags">
-                <span class="tag" v-for="tag in tags" :key="tag.id">{{ tag.name }}</span>
+                <span class="tag is-info" v-for="category in categories">{{ category.name }}</span>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import { getAll } from "../../apis/tags"
-    import Loading from '@/components/commons/Loading'
+    import {getAll} from "../../apis/categories"
+    import Loading from "../../components/commons/Loading"
     export default {
-        name: "TagList",
-        data() {
+        name: "CategoriesList",
+        data(){
             return {
-                tags:[],
-                loading: false
+                categories: [],
+                loading: false,
             }
         },
         created() {
             this.loading = true
             getAll().then(response => {
-                this.tags = response.data.data
+                this.categories = response.data.data
                 this.loading = false
             }).catch(error => {
-                console.log(error)
                 this.loading = false
+                console.log(error)
             })
+
         },
         components: {
             Loading

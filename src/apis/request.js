@@ -18,3 +18,5 @@ service.interceptors.request.use(config => {
 })
 
 export default service
+
+export const BASE_URL = 'http://api.spa.test'

@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home'
 import Article from './views/Article'
+import Articles from './views/articles/Index'
+import ArticleAdd from './views/articles/Add'
+import ArticleEdit from './views/articles/Edit'
 import Register from './views/login/Register'
 import Login from './views/login/Login'
 
@@ -44,26 +47,47 @@ export default new Router({
             path: '/',
             name: 'home',
             component: Home,
-            meta: { scrollToTop: true }
+            meta: { scrollToTop: true, requireAuth: false}
         },
         {
             path: '/articles/:url',
             name: 'article',
             component: Article,
-            meta: { scrollToTop: true }
+            meta: { scrollToTop: true, requireAuth: false}
+        },
+        {
+            path: '/article-add',
+            name: 'article-add',
+            component: ArticleAdd,
+            meta: { scrollToTop: true, requireAuth: true }
+        },
+        {
+            path: '/article-edit/:id',
+            name: 'article-edit',
+            component: ArticleEdit,
+            meta: { scrollToTop: true, requireAuth: true }
+        },
+        {
+            path: '/articles',
+            name: 'articles',
+            component: Articles,
+            meta: { scrollToTop: true, requireAuth: true }
         },
         {
             path: '/register',
             name: 'register',
             component: Register,
-            meta: { scrollToTop: true }
+            meta: { scrollToTop: true, requireAuth: false}
         },
         {
             path: '/login',
             name: 'login',
             component: Login,
-            meta: { scrollToTop: true }
+            meta: { scrollToTop: true, requireAuth: false}
         }
     ],
-    scrollBehavior
+    scrollBehavior,
+    beforeEach: (to) => {
+        console.log(to)
+    }
 })

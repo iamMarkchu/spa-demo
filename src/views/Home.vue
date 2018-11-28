@@ -21,45 +21,10 @@
           </div>
           <!-- tag components -->
           <tag-list></tag-list>
-          <div class="card right-block">
-            <header class="card-header">
-              <div class="card-header-title">类别栏</div>
-            </header>
-            <div class="card-content">
-              <div class="tags">
-                <span class="tag">One</span>
-                <span class="tag">Two</span>
-                <span class="tag">Three</span>
-                <span class="tag">Four</span>
-                <span class="tag">Five</span>
-                <span class="tag">Six</span>
-                <span class="tag">Seven</span>
-                <span class="tag">Eight</span>
-                <span class="tag">Nine</span>
-                <span class="tag">Ten</span>
-                <span class="tag">Eleven</span>
-                <span class="tag">Twelve</span>
-                <span class="tag">Thirteen</span>
-                <span class="tag">Fourteen</span>
-                <span class="tag">Fifteen</span>
-                <span class="tag">Sixteen</span>
-                <span class="tag">Seventeen</span>
-                <span class="tag">Eighteen</span>
-                <span class="tag">Nineteen</span>
-                <span class="tag">Twenty</span>
-              </div>
-            </div>
-          </div>
-          <div class="card right-block">
-            <header class="card-header">
-              <div class="card-header-title">广告位</div>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <img src="https://mars-assets.qnssl.com/qiniulog/img-slogan-blue-en.png" alt="" class="image">
-              </div>
-            </div>
-          </div>
+          <!-- category components -->
+          <category-list></category-list>
+          <!-- ads components -->
+          <ads></ads>
         </div>
       </div>
     </div>
@@ -69,11 +34,15 @@
 <script>
 import ArticleList from './../components/articles/ArticleList'
 import TagList from './../components/tags/TagList'
+import CategoryList from '../components/categories/CategoryList'
+import Ads from './../components/commons/Ads'
 export default {
   name: 'home',
   components: {
       ArticleList,
-      TagList
+      TagList,
+      CategoryList,
+      Ads
   }
 }
 </script>

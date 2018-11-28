@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <router-link class="navbar-item" to="/">
-                    Mcgoldfish
+                    <img src="/logo2.png" alt="">
                 </router-link>
 
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,35 +15,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item">
-                        Home
-                    </a>
 
-                    <a class="navbar-item">
-                        Documentation
-                    </a>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            More
-                        </a>
-
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                About
-                            </a>
-                            <a class="navbar-item">
-                                Jobs
-                            </a>
-                            <a class="navbar-item">
-                                Contact
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item">
-                                Report an issue
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="navbar-end">
@@ -57,16 +29,34 @@
                             </router-link>
                         </div>
                     </div>
-                    <div class="navbar-item has-dropdown is-hoverable" v-else>
-                        <a class="navbar-link">
-                            {{ name }}
-                        </a>
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item" @click.prevent="delAuthUser">
-                                退出登录
-                            </a>
+                    <template v-else>
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <router-link class="button is-info" to="/article-add">
+                                    写文章
+                                </router-link>
+                            </div>
                         </div>
-                    </div>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                {{ name }}
+                            </a>
+                            <div class="navbar-dropdown">
+                                <router-link class="navbar-item" to="/articles">
+                                    <i class="fas fa-file-alt"></i> &nbsp; 文章管理
+                                </router-link>
+                                <router-link class="navbar-item" to="/login">
+                                    <i class="fas fa-cogs"></i> &nbsp; 配置中心
+                                </router-link>
+                                <router-link class="navbar-item" to="/login">
+                                    <i class="fas fa-user"></i> &nbsp; 个人中心
+                                </router-link>
+                                <a class="navbar-item" @click.prevent="logoutRequest">
+                                    <i class="fas fa-power-off"></i> &nbsp; 退出登录
+                                </a>
+                            </div>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -84,12 +74,12 @@
         },
         methods: {
             ...mapActions([
-                'delAuthUser'
+                'logoutRequest'
             ])
         }
     }
 </script>
 
-<style>
+<style scoped>
 
 </style>

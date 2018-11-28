@@ -9,13 +9,15 @@
                         <form>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="email" placeholder="您的邮箱" autofocus="" v-model="email">
+                                    <input :class="{input: true, 'is-large': true, 'is-danger': errors.has('email')}" type="email" placeholder="您的邮箱" autofocus="" name="email" v-model="email" v-validate="'required|email'">
                                 </div>
+                                <p class="help is-danger has-text-left" v-show="errors.has('email')">{{ errors.first('email')}}</p>
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="text" placeholder="您的姓名" autofocus="" v-model="name">
+                                    <input :class="{input: true, 'is-large': true, 'is-danger': errors.has('name')}" type="text" placeholder="您的姓名" autofocus="" name="name" v-model="name" v-validate="'required'">
                                 </div>
+                                <p class="help is-danger has-text-left" v-show="errors.has('name')">{{ errors.first('name')}}</p>
                             </div>
 
                             <div class="field">
@@ -31,10 +33,10 @@
                             <button class="button is-block is-primary is-large is-fullwidth" @click.prevent="doRegister" >注册</button>
                         </form>
                     </div>
-                    <p class="has-text-grey">
-                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
-                        <a href="../">Forgot Password</a> &nbsp;
-                    </p>
+                    <!--<p class="has-text-grey">-->
+                        <!--<a href="../">Sign Up</a> &nbsp;·&nbsp;-->
+                        <!--<a href="../">Forgot Password</a> &nbsp;-->
+                    <!--</p>-->
                 </div>
             </div>
         </div>
@@ -63,7 +65,21 @@
                     password_confirmation: this.password_confirmation
                 }
                 register(postData).then(response => {
+                    let payload = {
+                        notiShow: true,
+                        notiType: 'info',
+                        notiText: '注册成功！'
+                    }
+                    this.$store.dispatch('showNotification', payload)
+                    this.$router.push({name:'login'})
                     console.log(response.data)
+                }).catch(() => {
+                    let payload = {
+                        notiShow: true,
+                        notiType: 'danger',
+                        notiText: '注册失败，请重试！'
+                    }
+                    this.$store.dispatch('showNotification', payload)
                 })
             }
         }

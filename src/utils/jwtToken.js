@@ -7,5 +7,6 @@ export default {
     },
     delToken() {
         window.localStorage.removeItem('jwt_token')
+        console.log('delete jwt token')
     }
 }
