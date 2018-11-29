@@ -45,7 +45,7 @@
                                 <router-link class="navbar-item" to="/articles">
                                     <i class="fas fa-file-alt"></i> &nbsp; 文章管理
                                 </router-link>
-                                <router-link class="navbar-item" to="/login">
+                                <router-link class="navbar-item" to="/configs">
                                     <i class="fas fa-cogs"></i> &nbsp; 配置中心
                                 </router-link>
                                 <router-link class="navbar-item" to="/login">

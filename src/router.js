@@ -5,6 +5,7 @@ import Article from './views/Article'
 import Articles from './views/articles/Index'
 import ArticleAdd from './views/articles/Add'
 import ArticleEdit from './views/articles/Edit'
+import ConfigIndex from './views/configs/Index'
 import Register from './views/login/Register'
 import Login from './views/login/Login'
 
@@ -71,6 +72,12 @@ export default new Router({
             path: '/articles',
             name: 'articles',
             component: Articles,
+            meta: { scrollToTop: true, requireAuth: true }
+        },
+        {
+            path: '/configs',
+            name: 'configs',
+            component: ConfigIndex,
             meta: { scrollToTop: true, requireAuth: true }
         },
         {

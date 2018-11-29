@@ -15,11 +15,17 @@
   export default {
       name: 'app',
       created() {
+          // 重新获取token
           if (JwtToken.getToken()) {
               this.$store.dispatch('setAuthUser').then(() => {
                   console.log('user get success')
               })
           }
+
+          // 获取配置
+          this.$store.dispatch('setConfig').then(() => {
+              console.log('config get success')
+          })
       },
       computed: {
           ...mapState([
