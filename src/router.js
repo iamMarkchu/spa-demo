@@ -8,6 +8,7 @@ import ArticleEdit from './views/articles/Edit'
 import ConfigIndex from './views/configs/Index'
 import Register from './views/login/Register'
 import Login from './views/login/Login'
+import TagComponent from './views/Tag'
 
 // scrollBehavior:
 // - only available in html5 history mode
@@ -73,6 +74,12 @@ export default new Router({
             name: 'articles',
             component: Articles,
             meta: { scrollToTop: true, requireAuth: true }
+        },
+        {
+            path: '/tags/:url',
+            name: 'tag',
+            component: TagComponent,
+            meta: { scrollToTop: true, requireAuth: false }
         },
         {
             path: '/configs',

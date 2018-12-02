@@ -8,7 +8,7 @@
         <div class="card-content">
             <loading v-show="loading"></loading>
             <div class="tags">
-                <span class="tag" v-for="tag in tags" :key="tag.id">{{ tag.name }}</span>
+                <router-link class="tag" v-for="tag in tags" :key="tag.id" :to="{name: 'tag', params: {url: tag.id}}">{{ tag.name }}</router-link>
             </div>
         </div>
     </div>
@@ -25,15 +25,34 @@
                 loading: false
             }
         },
+        props: {
+            articleTags: {
+                type: Array,
+                default: () => {
+                    return []
+                }
+            },
+            onlyArticle: {
+                type: Boolean,
+                default: false
+            }
+        },
         created() {
-            this.loading = true
-            getAll().then(response => {
-                this.tags = response.data.data
-                this.loading = false
-            }).catch(error => {
-                console.log(error)
-                this.loading = false
-            })
+            if (!this.onlyArticle) {
+                this.loading = true
+                getAll().then(response => {
+                    this.tags = response.data.data
+                    this.loading = false
+                }).catch(error => {
+                    console.log(error)
+                    this.loading = false
+                })
+            }
+        },
+        watch: {
+            articleTags(val) {
+                this.tags = val
+            }
         },
         components: {
             Loading
