@@ -2,7 +2,7 @@ import axios from 'axios'
 import JwtToken from './../utils/jwtToken'
 
 const service = axios.create({
-    baseURL: 'http://api.spa.test',
+    baseURL: process.env.VUE_APP_BASE_URL,
     timeout: 5000,
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
@@ -19,4 +19,4 @@ service.interceptors.request.use(config => {
 
 export default service
 
-export const BASE_URL = 'http://api.spa.test'
+export const BASE_URL = process.env.VUE_APP_BASE_URL
