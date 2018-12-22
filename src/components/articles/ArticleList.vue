@@ -9,7 +9,7 @@
                     <span class="tag is-rounded">{{ article.updated_at | formatDate }}</span>
                 </div>
                 <div class="content">
-                    <img class="image" style="margin-bottom: 10px;" :src="article.cover" alt="">
+                    <img v-show="article.cover != ''" class="image" style="margin-bottom: 10px;" :src="article.cover" alt="">
                     <div v-html="shortDesc(article)"></div>
                 </div>
             </div>
@@ -65,7 +65,9 @@
         },
         methods: {
             shortDesc(article) {
-                return this.converter.makeHtml(article.content.split("\n").slice(0, 6).join("\n"))
+                let desc = article.content.split("\n").slice(0, 6).join("\n")
+                console.log(desc)
+                return this.converter.makeHtml(desc)
             },
             displayPageClass(i) {
                 return {

@@ -64,22 +64,11 @@
                     password: this.password,
                     password_confirmation: this.password_confirmation
                 }
-                register(postData).then(response => {
-                    let payload = {
-                        notiShow: true,
-                        notiType: 'info',
-                        notiText: '注册成功！'
-                    }
-                    this.$store.dispatch('showNotification', payload)
+                register(postData).then(() => {
+                    this.$message.info('注册成功!')
                     this.$router.push({name:'login'})
-                    console.log(response.data)
                 }).catch(() => {
-                    let payload = {
-                        notiShow: true,
-                        notiType: 'danger',
-                        notiText: '注册失败，请重试！'
-                    }
-                    this.$store.dispatch('showNotification', payload)
+                    this.$message.error('注册失败，请重试！')
                 })
             }
         }

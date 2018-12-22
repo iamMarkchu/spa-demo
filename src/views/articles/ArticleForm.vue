@@ -108,37 +108,19 @@
                     categories: [this.categories],
                 }
                 if (this.isEdit) {
-                    updateArticle(formData, this.id).then(response => {
-                        this.$store.commit('setNoti', {
-                            notiShow: true,
-                            notiType: 'success',
-                            notiText: '修改成功!',
-                        })
-                        console.log(response)
+                    updateArticle(formData, this.id).then(() => {
+                        this.$message.success('修改成功!')
+                        this.$router.go(-1)
                     }).catch(error => {
-                        this.$store.commit('setNoti', {
-                            notiShow: true,
-                            notiType: 'danger',
-                            notiText: error.message,
-                        })
-                        console.log(error)
+                        this.$message.error(error.message)
                     })
                 } else {
                     formData.status = status
-                    storeArticle(formData).then(response => {
-                        this.$store.commit('setNoti', {
-                            notiShow: true,
-                            notiType: 'success',
-                            notiText: '保存成功!',
-                        })
-                        console.log(response)
+                    storeArticle(formData).then(() => {
+                        this.$message.success('保存成功!')
+                        this.$router.go(-1)
                     }).catch(error => {
-                        this.$store.commit('setNoti', {
-                            notiShow: true,
-                            notiType: 'danger',
-                            notiText: error.message,
-                        })
-                        console.log(error)
+                        this.$message.error(error.message)
                     })
                 }
             }

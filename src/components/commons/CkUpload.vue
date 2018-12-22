@@ -57,6 +57,9 @@
                 this.$emit('update', '')
             },
             handleSuccess(response) {
+                // 若返回是本地链接，加上后端域名，本地开发用
+                if (!response.url.startsWith('http'))
+                    response.url = BASE_URL + response.url
                 this.$emit('update', response.url)
                 console.log(response)
             },
